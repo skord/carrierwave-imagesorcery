@@ -153,7 +153,7 @@ module CarrierWave
 
     def manipulate!
       cache_stored_file! if !cached?
-      image = Sorcery.new current_path
+      image = Sorcery.gm current_path
       image = yield(image)
     rescue RuntimeError, StandardError => e
       raise CarrierWave::ProcessingError , I18n.translate(:"errors.messages.imagesorcery_processing_error", :e => e)
